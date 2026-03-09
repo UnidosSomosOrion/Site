@@ -1,1 +1,1 @@
-Para honra e glória de Deus =)
+salvar do pecado e guiar no serviço
