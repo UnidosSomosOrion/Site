@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clube Órion | Desbravadores</title>
+  <style>
+    :root {
+      --azul: #123a6d;
+      --azul-escuro: #0b2447;
+      --dourado: #d9a441;
+      --branco: #ffffff;
+      --cinza: #f4f7fb;
+      --texto: #1c2430;
+      --card: rgba(255,255,255,0.92);
+      --sombra: 0 16px 40px rgba(0,0,0,0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: linear-gradient(180deg, #f8fbff 0%, #edf3fa 100%);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(18,58,109,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--azul-escuro);
+    }
+
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-escuro) 100%);
+      color: var(--branco);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      box-shadow: var(--sombra);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 18px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+      font-size: 15px;
+      color: #355070;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(18,58,109,0.96), rgba(11,36,71,0.95));
+      color: var(--branco);
+      border-radius: 28px;
+      padding: 42px;
+      box-shadow: var(--sombra);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(217,164,65,0.18);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.08;
+    }
+
+    .hero p {
+      margin: 0 0 22px;
+      font-size: 1.05rem;
+      max-width: 60ch;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--dourado);
+      color: #2c1d00;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.28);
+      color: var(--branco);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .info-panel {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(18,58,109,0.08);
+    }
+
+    .info-panel h3 {
+      margin-top: 0;
+      color: var(--azul-escuro);
+      font-size: 1.35rem;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .quick-item {
+      background: #f7faff;
+      border: 1px solid #e0e9f5;
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    section {
+      padding: 22px 0 26px;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      margin: 0 0 8px;
+      color: var(--azul-escuro);
+    }
+
+    .section-subtitle {
+      margin: 0 0 22px;
+      color: #4a5d75;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--branco);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--sombra);
+      border: 1px solid rgba(18,58,109,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--azul-escuro);
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .schedule .card strong {
+      color: var(--azul);
+    }
+
+    .banner {
+      background: linear-gradient(135deg, #fff8ea, #fffdf7);
+      border: 1px solid #f0dfb0;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--sombra);
+    }
+
+    footer {
+      padding: 30px 0 50px;
+      color: #57708f;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .cards,
+      .schedule {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero-card,
+      .info-panel {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.jpg" alt="Logo Clube Órion" style="height:60px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.2);" />
+        <div>
+          <div>Clube Órion</div>
+          <small>Igreja Adventista do Brooklin</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="eyebrow">Desenvolvendo caráter, liderança e serviço</span>
+          <div style="margin-bottom:18px;">
+            <img src="logo.jpg" alt="Brasão Clube Órion" style="max-height:160px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.35);" />
+          </div>
+          <h1>Clube de Desbravadores Órion</h1>
+          <p>
+            Um espaço para crescimento espiritual, amizade, disciplina, aventura e serviço à comunidade.
+            Aqui você pode apresentar a identidade do clube, divulgar atividades e receber novos participantes.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contato">Quero participar</a>
+            <a class="btn btn-secondary" href="#agenda">Ver agenda</a>
+          </div>
+        </div>
+
+        <aside class="info-panel">
+          <h3>Informações rápidas</h3>
+          <div class="quick-list">
+            <div class="quick-item"><strong>Local:</strong> Igreja Adventista do Brooklin</div>
+            <div class="quick-item"><strong>Clube:</strong> Órion</div>
+            <div class="quick-item"><strong>Público:</strong> Juvenis e adolescentes</div>
+            <div class="quick-item"><strong>Foco:</strong> Fé, liderança, ordem unida, acampamentos e serviço</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre o clube</h2>
+        <p class="section-subtitle">
+          Esta seção pode apresentar a missão, a história do clube e os valores que vocês desejam transmitir.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>Missão</h3>
+            <p>Fortalecer a formação cristã de crianças e adolescentes por meio de atividades práticas, estudo, companheirismo e serviço.</p>
+          </article>
+          <article class="card">
+            <h3>Visão</h3>
+            <p>Ser um clube acolhedor, organizado e inspirador, reconhecido pelo espírito de excelência e dedicação à comunidade.</p>
+          </article>
+          <article class="card">
+            <h3>Valores</h3>
+            <p>Respeito, disciplina, amizade, espírito missionário, amor à natureza e compromisso com Deus.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="atividades">
+      <div class="container">
+        <h2 class="section-title">Atividades do Clube Órion</h2>
+        <p class="section-subtitle">
+          Você pode trocar estes exemplos pelas atividades reais do clube.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>Reuniões regulares</h3>
+            <p>Programações com louvor, classes, especialidades, ordem unida, dinâmica em equipe e momentos devocionais.</p>
+          </article>
+          <article class="card">
+            <h3>Acampamentos</h3>
+            <p>Vivências na natureza com aprendizado prático, organização, disciplina e fortalecimento dos vínculos do clube.</p>
+          </article>
+          <article class="card">
+            <h3>Ações solidárias</h3>
+            <p>Projetos de arrecadação, apoio à comunidade, visitas e outras atividades que reforçam o espírito de serviço.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <div class="container">
+        <h2 class="section-title">Agenda inicial</h2>
+        <p class="section-subtitle">
+          Estrutura simples para você começar a divulgar os encontros e eventos.
+        </p>
+        <div class="schedule">
+          <article class="card">
+            <h3>Próximo encontro</h3>
+            <p><strong>Data:</strong> inserir data</p>
+            <p><strong>Horário:</strong> inserir horário</p>
+            <p><strong>Tema:</strong> inserir tema da reunião</p>
+          </article>
+          <article class="card">
+            <h3>Evento especial</h3>
+            <p><strong>Data:</strong> inserir data</p>
+            <p><strong>Tipo:</strong> acampamento, investidura, caminhada, ação social etc.</p>
+            <p><strong>Observação:</strong> levar uniforme, Bíblia, caderno, água, etc.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="banner">
+          <h2 class="section-title">Área para pais e responsáveis</h2>
+          <p class="section-subtitle" style="margin-bottom:0;">
+            Aqui podem entrar informações sobre inscrições, documentos, horários, uniforme, calendário anual e canais de contato.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="container">
+      <strong>Contato do Clube Órion</strong><br>
+      Igreja Adventista do Brooklin · inserir telefone · inserir Instagram · inserir e-mail<br>
+      <span>Site inicial criado para publicação gratuita no GitHub Pages.</span>
+    </div>
+  </footer>
+</body>
+</html>
