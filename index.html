@@ -4,12 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clube Órion | Desbravadores | Igreja Adventista do Brooklin</title>
-  <meta name="description" content="Site oficial do Clube de Desbravadores Órion da Igreja Adventista do Brooklin. Conheça nossas atividades, agenda, especialidades e formas de contato." />
+  <meta
+    name="description"
+    content="Site oficial do Clube de Desbravadores Órion da Igreja Adventista do Brooklin. Conheça nossas atividades, agenda, documentos, especialidades e formas de contato."
+  />
   <style>
     :root{
       --azul-1:#081a3a;
       --azul-2:#123a6d;
       --azul-3:#1f5da8;
+      --azul-4:#0b1f45;
       --dourado:#e0b24a;
       --dourado-2:#f3d57a;
       --branco:#ffffff;
@@ -77,7 +81,6 @@
       font-size:1.02rem;
     }
 
-    /* HEADER */
     header{
       position:sticky;
       top:0;
@@ -109,6 +112,7 @@
       border-radius:12px;
       box-shadow:var(--shadow);
       background:#fff;
+      flex-shrink:0;
     }
 
     .brand-text{
@@ -157,7 +161,6 @@
       box-shadow:var(--shadow);
     }
 
-    /* HERO */
     .hero{
       padding:58px 0 42px;
     }
@@ -209,6 +212,8 @@
       line-height:1.05;
       margin-bottom:16px;
       max-width:9ch;
+      position:relative;
+      z-index:1;
     }
 
     .hero-main p{
@@ -216,6 +221,8 @@
       color:rgba(255,255,255,0.92);
       max-width:60ch;
       margin-bottom:24px;
+      position:relative;
+      z-index:1;
     }
 
     .hero-buttons{
@@ -223,6 +230,8 @@
       gap:12px;
       flex-wrap:wrap;
       margin-bottom:22px;
+      position:relative;
+      z-index:1;
     }
 
     .btn{
@@ -252,11 +261,19 @@
       border:1px solid rgba(255,255,255,0.18);
     }
 
+    .btn-doc{
+      background:linear-gradient(135deg, #0d3f75, #1f5da8);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
     .hero-tags{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       margin-top:8px;
+      position:relative;
+      z-index:1;
     }
 
     .hero-tag{
@@ -319,16 +336,17 @@
 
     .constellation{
       position: relative;
-      margin-top: 26px;
-      width: 280px;
-      height: 210px;
+      margin-top: 28px;
+      width: 320px;
+      height: 220px;
       opacity: 0.98;
+      z-index:1;
     }
-    
+
     .constellation-orion{
       filter: drop-shadow(0 0 14px rgba(255, 240, 170, 0.16));
     }
-    
+
     .star{
       position:absolute;
       border-radius:50%;
@@ -339,24 +357,24 @@
         0 0 24px rgba(255,244,176,0.35);
       animation: twinkle 3.2s infinite ease-in-out;
     }
-    
+
     .star.big{
       width: 11px;
       height: 11px;
     }
-    
+
     .star.belt{
       width: 9px;
       height: 9px;
       background: #ffe88a;
     }
-    
+
     .star.small{
       width: 6px;
       height: 6px;
       background: #fff7c8;
     }
-    
+
     .constellation .star:nth-child(1){ animation-delay:0.1s; }
     .constellation .star:nth-child(2){ animation-delay:0.8s; }
     .constellation .star:nth-child(3){ animation-delay:0.3s; }
@@ -367,7 +385,7 @@
     .constellation .star:nth-child(8){ animation-delay:1.8s; }
     .constellation .star:nth-child(9){ animation-delay:0.4s; }
     .constellation .star:nth-child(10){ animation-delay:1.3s; }
-    
+
     .line{
       position:absolute;
       height:2px;
@@ -381,12 +399,12 @@
       border-radius:999px;
       box-shadow:0 0 8px rgba(255,245,190,0.22);
     }
-    
+
     .line.thin{
       height:1.5px;
       opacity:0.85;
     }
-    
+
     @keyframes twinkle{
       0%, 100%{
         transform: scale(1);
@@ -398,12 +416,6 @@
       }
     }
 
-    @keyframes twinkle{
-      0%,100%{ transform:scale(1); opacity:0.85; }
-      50%{ transform:scale(1.35); opacity:1; }
-    }
-
-    /* GRID SECTIONS */
     .grid-3{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -419,7 +431,8 @@
     .feature-card h3,
     .agenda-card h3,
     .gallery-card h3,
-    .contact-card h3{
+    .contact-card h3,
+    .doc-card h3{
       color:var(--azul-1);
       margin-bottom:10px;
       font-size:1.25rem;
@@ -428,7 +441,8 @@
     .feature-card p,
     .agenda-card p,
     .gallery-card p,
-    .contact-card p{
+    .contact-card p,
+    .doc-card p{
       color:var(--texto-claro);
     }
 
@@ -444,7 +458,6 @@
       border:1px solid #e2e9f2;
     }
 
-    /* AGENDA */
     .agenda-highlight{
       background:linear-gradient(135deg, #fff8e7, #fffef9);
       border:1px solid #f1dfae;
@@ -466,7 +479,65 @@
       font-weight:700;
     }
 
-    /* GALERIA */
+    .docs-wrap{
+      display:grid;
+      gap:28px;
+    }
+
+    .docs-category{
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,248,252,0.95));
+      border:1px solid rgba(18,58,109,0.08);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+
+    .docs-category-title{
+      font-size:1.4rem;
+      color:var(--azul-1);
+      margin-bottom:8px;
+    }
+
+    .docs-category-subtitle{
+      color:var(--texto-claro);
+      margin-bottom:20px;
+    }
+
+    .doc-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .doc-card{
+      background:#fff;
+      border:1px solid #e3ebf7;
+      border-radius:22px;
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .doc-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:auto;
+      padding-top:6px;
+    }
+
+    .doc-label{
+      display:inline-block;
+      width:max-content;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#eef4ff;
+      color:var(--azul-2);
+      font-weight:700;
+      font-size:0.82rem;
+    }
+
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -500,7 +571,6 @@
       font-size:0.95rem;
     }
 
-    /* CTA FINAL */
     .final-cta{
       background:
         radial-gradient(circle at 85% 20%, rgba(224,178,74,0.14), transparent 180px),
@@ -522,7 +592,6 @@
       margin-bottom:20px;
     }
 
-    /* FOOTER */
     footer{
       padding:28px 0 42px;
       color:#62748f;
@@ -538,12 +607,12 @@
       flex-wrap:wrap;
     }
 
-    /* RESPONSIVO */
     @media (max-width: 980px){
       .hero-grid,
       .grid-3,
       .grid-2,
-      .gallery-grid{
+      .gallery-grid,
+      .doc-grid{
         grid-template-columns:1fr;
       }
 
@@ -555,7 +624,8 @@
         padding:32px 24px;
       }
 
-      .card{
+      .card,
+      .docs-category{
         padding:22px;
       }
 
@@ -565,6 +635,12 @@
 
       .logo-card img{
         max-height:220px;
+      }
+
+      .constellation{
+        transform:scale(.9);
+        transform-origin:left top;
+        height:190px;
       }
     }
 
@@ -594,12 +670,21 @@
         max-width:none;
       }
 
-      .hero-buttons{
+      .hero-buttons,
+      .doc-actions{
         flex-direction:column;
       }
 
       .btn{
         width:100%;
+      }
+
+      .constellation{
+        width:280px;
+        transform:scale(.82);
+        transform-origin:left top;
+        margin-top:24px;
+        height:170px;
       }
     }
   </style>
@@ -619,8 +704,8 @@
       <nav>
         <ul>
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#atividades">Atividades</a></li>
           <li><a href="#agenda">Agenda</a></li>
+          <li><a href="#documentos">Documentos</a></li>
           <li><a href="#especialidades">Especialidades</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#contato" class="nav-cta">Participar</a></li>
@@ -643,6 +728,7 @@
           <div class="hero-buttons">
             <a class="btn btn-primary" href="#contato">Quero participar</a>
             <a class="btn btn-secondary" href="#agenda">Ver agenda</a>
+            <a class="btn btn-secondary" href="#documentos">Ver documentos</a>
           </div>
 
           <div class="hero-tags">
@@ -653,35 +739,40 @@
           </div>
 
           <div class="constellation constellation-orion" aria-hidden="true">
-            <!-- Ombros -->
-            <div class="star big" style="left:28px; top:20px;"></div>
-            <div class="star big" style="left:210px; top:14px;"></div>
-          
+            <!-- Ombro esquerdo -->
+            <div class="star big" style="left:20px; top:28px;"></div>
+
+            <!-- Ombro direito -->
+            <div class="star big" style="left:245px; top:18px;"></div>
+
             <!-- Cinturão -->
-            <div class="star belt" style="left:92px; top:78px;"></div>
-            <div class="star belt" style="left:128px; top:70px;"></div>
-            <div class="star belt" style="left:164px; top:62px;"></div>
-          
-            <!-- Pés -->
-            <div class="star big" style="left:58px; top:160px;"></div>
-            <div class="star big" style="left:222px; top:170px;"></div>
-          
+            <div class="star belt" style="left:108px; top:90px;"></div>
+            <div class="star belt" style="left:145px; top:82px;"></div>
+            <div class="star belt" style="left:182px; top:74px;"></div>
+
+            <!-- Pé esquerdo -->
+            <div class="star big" style="left:76px; top:176px;"></div>
+
+            <!-- Pé direito -->
+            <div class="star big" style="left:255px; top:184px;"></div>
+
             <!-- Espada -->
-            <div class="star small" style="left:138px; top:102px;"></div>
-            <div class="star small" style="left:132px; top:128px;"></div>
-            <div class="star small" style="left:126px; top:152px;"></div>
-          
-            <!-- Ligações principais -->
-            <div class="line" style="left:36px; top:28px; width:76px; transform:rotate(34deg);"></div>
-            <div class="line" style="left:100px; top:82px; width:37px; transform:rotate(-12deg);"></div>
-            <div class="line" style="left:136px; top:74px; width:37px; transform:rotate(-12deg);"></div>
-            <div class="line" style="left:169px; top:66px; width:54px; transform:rotate(-55deg);"></div>
-            <div class="line" style="left:96px; top:83px; width:92px; transform:rotate(59deg);"></div>
-          
+            <div class="star small" style="left:150px; top:110px;"></div>
+            <div class="star small" style="left:143px; top:136px;"></div>
+            <div class="star small" style="left:136px; top:160px;"></div>
+
+            <!-- Ligações -->
+            <div class="line" style="left:28px; top:34px; width:100px; transform:rotate(31deg);"></div>
+            <div class="line" style="left:114px; top:94px; width:38px; transform:rotate(-12deg);"></div>
+            <div class="line" style="left:151px; top:86px; width:38px; transform:rotate(-12deg);"></div>
+            <div class="line" style="left:189px; top:78px; width:60px; transform:rotate(-53deg);"></div>
+            <div class="line" style="left:113px; top:95px; width:96px; transform:rotate(58deg);"></div>
+            <div class="line" style="left:191px; top:79px; width:118px; transform:rotate(58deg);"></div>
+
             <!-- Espada -->
-            <div class="line thin" style="left:140px; top:78px; width:26px; transform:rotate(98deg);"></div>
-            <div class="line thin" style="left:134px; top:106px; width:24px; transform:rotate(102deg);"></div>
-            <div class="line thin" style="left:128px; top:130px; width:22px; transform:rotate(104deg);"></div>
+            <div class="line thin" style="left:149px; top:88px; width:25px; transform:rotate(96deg);"></div>
+            <div class="line thin" style="left:143px; top:116px; width:24px; transform:rotate(104deg);"></div>
+            <div class="line thin" style="left:137px; top:141px; width:22px; transform:rotate(106deg);"></div>
           </div>
         </div>
 
@@ -696,7 +787,7 @@
               <div class="info-item"><strong>Clube:</strong> Órion</div>
               <div class="info-item"><strong>Igreja:</strong> Igreja Adventista do Brooklin</div>
               <div class="info-item"><strong>Foco:</strong> formação cristã, liderança e serviço</div>
-              <div class="info-item"><strong>Contato:</strong> ajuste aqui com WhatsApp, Instagram ou e-mail</div>
+              <div class="info-item"><strong>Documentos:</strong> calendários, manual e reunião de pais</div>
             </div>
           </div>
         </div>
@@ -707,7 +798,8 @@
       <div class="container">
         <h2 class="section-title">Sobre o Clube Órion</h2>
         <p class="section-subtitle">
-          O Clube Órion existe para acolher crianças e adolescentes em um ambiente de crescimento espiritual, companheirismo, aprendizado prático e desenvolvimento de valores cristãos.
+          O Clube Órion existe para acolher crianças e adolescentes em um ambiente de crescimento espiritual,
+          companheirismo, aprendizado prático e desenvolvimento de valores cristãos.
         </p>
 
         <div class="grid-3">
@@ -715,7 +807,8 @@
             <div class="icon-badge">🧭</div>
             <h3>Missão</h3>
             <p>
-              Conduzir juvenis e adolescentes a uma experiência de fé, disciplina, amizade, responsabilidade e serviço, preparando-os para serem cidadãos úteis e cristãos comprometidos.
+              Conduzir juvenis e adolescentes a uma experiência de fé, disciplina, amizade,
+              responsabilidade e serviço, preparando-os para serem cidadãos úteis e cristãos comprometidos.
             </p>
           </article>
 
@@ -723,7 +816,8 @@
             <div class="icon-badge">⭐</div>
             <h3>Visão</h3>
             <p>
-              Ser um clube reconhecido por sua organização, acolhimento, identidade espiritual e excelência no desenvolvimento de líderes para a igreja e para a sociedade.
+              Ser um clube reconhecido por sua organização, acolhimento, identidade espiritual
+              e excelência no desenvolvimento de líderes para a igreja e para a sociedade.
             </p>
           </article>
 
@@ -731,7 +825,8 @@
             <div class="icon-badge">🤝</div>
             <h3>Valores</h3>
             <p>
-              Respeito, reverência, coragem, serviço, amizade, cooperação, amor à natureza, compromisso com a verdade e dedicação a Deus.
+              Respeito, reverência, coragem, serviço, amizade, cooperação,
+              amor à natureza, compromisso com a verdade e dedicação a Deus.
             </p>
           </article>
         </div>
@@ -750,7 +845,8 @@
             <div class="icon-badge">🏕️</div>
             <h3>Acampamentos e aventuras</h3>
             <p>
-              Experiências ao ar livre com organização, trabalho em equipe, contato com a natureza e desenvolvimento de habilidades práticas.
+              Experiências ao ar livre com organização, trabalho em equipe,
+              contato com a natureza e desenvolvimento de habilidades práticas.
             </p>
           </article>
 
@@ -758,7 +854,8 @@
             <div class="icon-badge">📘</div>
             <h3>Classes e especialidades</h3>
             <p>
-              Aprendizado progressivo por meio de requisitos, projetos, estudo bíblico, práticas manuais, conhecimento técnico e formação integral.
+              Aprendizado progressivo por meio de requisitos, projetos,
+              estudo bíblico, práticas manuais, conhecimento técnico e formação integral.
             </p>
           </article>
 
@@ -766,7 +863,8 @@
             <div class="icon-badge">💙</div>
             <h3>Serviço e ação social</h3>
             <p>
-              Participação em campanhas solidárias, apoio à comunidade, visitas, arrecadações e ações que expressem o amor cristão na prática.
+              Participação em campanhas solidárias, apoio à comunidade, visitas,
+              arrecadações e ações que expressem o amor cristão na prática.
             </p>
           </article>
         </div>
@@ -777,7 +875,8 @@
       <div class="container">
         <h2 class="section-title">Agenda</h2>
         <p class="section-subtitle">
-          Atualize esta seção com os compromissos reais do clube para manter pais, responsáveis e desbravadores informados.
+          Atualize esta seção com os compromissos reais do clube para manter pais,
+          responsáveis e desbravadores informados.
         </p>
 
         <div class="grid-2">
@@ -797,7 +896,8 @@
           <article class="card agenda-card">
             <h3>Próximo evento especial</h3>
             <p>
-              Use este bloco para acampamento, investidura, feira, caminhada, campori, visita missionária ou ação social.
+              Use este bloco para acampamento, investidura, feira, caminhada, campori,
+              visita missionária ou ação social.
             </p>
             <div class="agenda-meta">
               <span>🎒 Tipo: inserir aqui</span>
@@ -809,11 +909,117 @@
       </div>
     </section>
 
+    <section id="documentos" class="section">
+      <div class="container">
+        <h2 class="section-title">Documentos</h2>
+        <p class="section-subtitle">
+          Nesta área você encontra os principais materiais do Clube Órion para pais,
+          responsáveis e desbravadores.
+        </p>
+
+        <div class="docs-wrap">
+          <div class="docs-category">
+            <h3 class="docs-category-title">Calendários e planejamento</h3>
+            <p class="docs-category-subtitle">
+              Arquivos com a programação anual e versões atualizadas do calendário do clube.
+            </p>
+
+            <div class="doc-grid">
+              <article class="doc-card">
+                <span class="doc-label">Calendário</span>
+                <h3>Calendário Órion 2026 (versão final)</h3>
+                <p>
+                  Versão revisada do calendário anual com informações atualizadas para acompanhamento das famílias.
+                </p>
+                <div class="doc-actions">
+                  <a class="btn btn-doc" href="documentos/CALENDORION_2026_vf.pdf" target="_blank" rel="noopener noreferrer">
+                    Abrir PDF
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="docs-category">
+            <h3 class="docs-category-title">Materiais administrativos</h3>
+            <p class="docs-category-subtitle">
+              Documentos de apoio para organização financeira e acompanhamento interno do clube.
+            </p>
+
+            <div class="doc-grid">
+              <article class="doc-card">
+                <span class="doc-label">Administração</span>
+                <h3>Manual de Tesouraria</h3>
+                <p>
+                  Documento com orientações financeiras, contribuições,
+                  organização e procedimentos administrativos do clube.
+                </p>
+                <div class="doc-actions">
+                  <a class="btn btn-doc" href="documentos/Manual_Tesouraria_Orion.pdf" target="_blank" rel="noopener noreferrer">
+                    Abrir PDF
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="docs-category">
+            <h3 class="docs-category-title">Materiais para pais e responsáveis</h3>
+            <p class="docs-category-subtitle">
+              Apresentações e materiais de referência da reunião de pais de 2026.
+            </p>
+
+            <div class="doc-grid">
+              <article class="doc-card">
+                <span class="doc-label">Reunião de Pais</span>
+                <h3>Reunião de Pais 2026 — Parte 1</h3>
+                <p>
+                  Introdução e visão geral do clube, com apresentação inicial para famílias e responsáveis.
+                </p>
+                <div class="doc-actions">
+                  <a class="btn btn-doc" href="documentos/REUNIAO_DE_PAIS_2026_parte_1_intro_clube.pdf" target="_blank" rel="noopener noreferrer">
+                    Abrir PDF
+                  </a>
+                </div>
+              </article>
+
+              <article class="doc-card">
+                <span class="doc-label">Reunião de Pais</span>
+                <h3>Reunião de Pais 2026 — Parte 2</h3>
+                <p>
+                  Operação do clube, documentação, comunicação, classes, formação e orientações complementares.
+                </p>
+                <div class="doc-actions">
+                  <a class="btn btn-doc" href="documentos/REUNIAO_DE_PAIS_2026_parte_2_operacao_formacao.pdf" target="_blank" rel="noopener noreferrer">
+                    Abrir PDF
+                  </a>
+                </div>
+              </article>
+
+              <article class="doc-card">
+                <span class="doc-label">Reunião de Pais</span>
+                <h3>Reunião de Pais 2026 — Parte 3</h3>
+                <p>
+                  Tesouraria, orientações finais e conteúdos relacionados ao campori e demais programações especiais.
+                </p>
+                <div class="doc-actions">
+                  <a class="btn btn-doc" href="documentos/REUNIAO_DE_PAIS_2026_parte_3_tesouraria_campori.pdf" target="_blank" rel="noopener noreferrer">
+                    Abrir PDF
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="especialidades" class="section">
       <div class="container">
         <h2 class="section-title">Especialidades e formação</h2>
         <p class="section-subtitle">
-          Você pode usar esta área para apresentar temas trabalhados pelo clube e mostrar a riqueza pedagógica do programa dos desbravadores.
+          Você pode usar esta área para apresentar temas trabalhados pelo clube e mostrar
+          a riqueza pedagógica do programa dos desbravadores.
         </p>
 
         <div class="grid-3">
@@ -821,7 +1027,8 @@
             <div class="icon-badge">🌿</div>
             <h3>Natureza</h3>
             <p>
-              Conhecimento sobre fauna, flora, preservação ambiental, observação da criação e responsabilidade com o mundo ao nosso redor.
+              Conhecimento sobre fauna, flora, preservação ambiental,
+              observação da criação e responsabilidade com o mundo ao nosso redor.
             </p>
           </article>
 
@@ -829,7 +1036,8 @@
             <div class="icon-badge">🪢</div>
             <h3>Técnicas e habilidades</h3>
             <p>
-              Nós e amarras, primeiros socorros, orientação, organização, vida ao ar livre e outras competências práticas de grande valor.
+              Nós e amarras, primeiros socorros, orientação, organização,
+              vida ao ar livre e outras competências práticas de grande valor.
             </p>
           </article>
 
@@ -837,7 +1045,8 @@
             <div class="icon-badge">🙏</div>
             <h3>Vida espiritual</h3>
             <p>
-              Estudo bíblico, devoção, testemunho, reverência e crescimento pessoal com base em princípios cristãos.
+              Estudo bíblico, devoção, testemunho, reverência
+              e crescimento pessoal com base em princípios cristãos.
             </p>
           </article>
         </div>
@@ -848,7 +1057,8 @@
       <div class="container">
         <h2 class="section-title">Galeria</h2>
         <p class="section-subtitle">
-          Enquanto você ainda não tiver fotos publicadas, esta área pode funcionar como espaço reservado. Depois, dá para trocar cada bloco por imagens reais.
+          Enquanto você ainda não tiver fotos publicadas, esta área pode funcionar como espaço reservado.
+          Depois, dá para trocar cada bloco por imagens reais.
         </p>
 
         <div class="gallery-grid">
@@ -881,11 +1091,13 @@
         <div class="final-cta">
           <h2>Faça parte do Clube Órion</h2>
           <p>
-            Se você deseja conhecer melhor o clube, saber como funcionam as reuniões ou obter informações para inscrição, entre em contato conosco. Será uma alegria receber novos desbravadores e suas famílias.
+            Se você deseja conhecer melhor o clube, saber como funcionam as reuniões
+            ou obter informações para inscrição, entre em contato conosco.
+            Será uma alegria receber novos desbravadores e suas famílias.
           </p>
           <div class="hero-buttons">
             <a class="btn btn-primary" href="#contato">Entrar em contato</a>
-            <a class="btn btn-secondary" href="#sobre">Conhecer o clube</a>
+            <a class="btn btn-secondary" href="#documentos">Ver documentos</a>
           </div>
         </div>
       </div>
@@ -921,7 +1133,7 @@
             </a>
           </div>
           <p style="margin-top:12px;">
-            Exemplo de formato do link: <br>
+            Exemplo de formato do link:<br>
             <strong>https://wa.me/55DDDNÚMERO</strong>
           </p>
         </article>
